@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝐿.𝐼.𝐾---𝑊𝐼𝑁𝑇𝐸𝑅 | مملكة الشتاء الأسطورية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Amiri:wght@400;700&family=Playfair+Display:wght@400;700;900&family=Cormorant+Garamond:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --royal-gold: #FFD700;
+            --royal-dark: #0a0e1a;
+            --royal-blue: #1a2332;
+            --ice-blue: #4da6ff;
+            --winter-white: #e8f4f8;
+            --blood-red: #8b0000;
+            --shadow-deep: rgba(0, 0, 0, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Amiri', 'Cormorant Garamond', serif;
+            background: var(--royal-dark);
+            color: var(--winter-white);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Video Background */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            opacity: 0.15;
+            object-fit: cover;
+        }
+
+        /* Animated Snow Effect */
+        .snow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 1em;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        /* Audio Player */
+        .audio-player {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(26, 35, 50, 0.9);
+            padding: 15px 25px;
+            border-radius: 50px;
+            border: 2px solid var(--royal-gold);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 8px 32px rgba(255, 215, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .audio-player:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 40px rgba(255, 215, 0, 0.5);
+        }
+
+        .audio-icon {
+            font-size: 24px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 80px 20px 40px;
+            background: linear-gradient(180deg, rgba(26, 35, 50, 0.95) 0%, rgba(10, 14, 26, 0.7) 100%);
+            border-bottom: 3px solid var(--royal-gold);
+            position: relative;
+            animation: fadeInDown 1s ease;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .kingdom-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 5em;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--royal-gold) 0%, #fff 50%, var(--ice-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+            letter-spacing: 8px;
+            margin-bottom: 20px;
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5)); }
+            50% { filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.9)); }
+        }
+
+        .kingdom-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            color: var(--ice-blue);
+            font-style: italic;
+            margin-top: 10px;
+            letter-spacing: 3px;
+        }
+
+        .developer-credit {
+            margin-top: 30px;
+            font-size: 1.2em;
+            color: var(--royal-gold);
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .developer-credit span {
+            background: linear-gradient(90deg, var(--royal-gold), var(--ice-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.3em;
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 100px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3em;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--royal-gold);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--royal-gold), transparent);
+        }
+
+        /* King Card */
+        .king-card {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.3) 0%, rgba(26, 35, 50, 0.6) 100%);
+            border: 3px solid var(--royal-gold);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+            box-shadow: 0 20px 60px var(--shadow-deep);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .king-card::before {
+            content: '👑';
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            font-size: 150px;
+            opacity: 0.1;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .king-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 80px rgba(255, 215, 0, 0.4);
+        }
+
+        .king-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 5px solid var(--royal-gold);
+            margin: 0 auto 30px;
+            object-fit: cover;
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
+            transition: all 0.3s ease;
+        }
+
+        .king-image:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 0 60px rgba(255, 215, 0, 0.9);
+        }
+
+        .king-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5em;
+            color: var(--royal-gold);
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .king-name {
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--royal-gold), var(--winter-white));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .king-description {
+            font-size: 1.3em;
+            line-height: 1.8;
+            color: var(--winter-white);
+            opacity: 0.9;
+        }
+
+        /* Royalty Grid */
+        .royalty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .royal-card {
+            background: linear-gradient(135deg, rgba(26, 35, 50, 0.8) 0%, rgba(10, 14, 26, 0.9) 100%);
+            border: 2px solid var(--ice-blue);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .royal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(77, 166, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .royal-card:hover::before {
+            left: 100%;
+        }
+
+        .royal-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            border-color: var(--royal-gold);
+            box-shadow: 0 25px 50px rgba(77, 166, 255, 0.4);
+        }
+
+        .royal-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 15px;
+            border: 3px solid var(--ice-blue);
+            margin: 0 auto 25px;
+            object-fit: cover;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .royal-card:hover .royal-image {
+            border-color: var(--royal-gold);
+            transform: scale(1.05);
+        }
+
+        .royal-rank {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8em;
+            color: var(--royal-gold);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .royal-name {
+            font-size: 1.6em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--ice-blue);
+        }
+
+        .royal-description {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: var(--winter-white);
+            opacity: 0.85;
+        }
+
+        /* Special Card for Power (Advisor) */
+        .advisor-card {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.4) 0%, rgba(26, 35, 50, 0.8) 100%);
+            border: 3px solid var(--royal-gold);
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
+        }
+
+        .advisor-card .royal-rank {
+            font-size: 2em;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+        }
+
+        .advisor-card .royal-image {
+            border-color: var(--royal-gold);
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Guilds Section */
+        .guilds-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            margin-top: 40px;
+        }
+
+        .guild-card {
+            background: linear-gradient(135deg, rgba(10, 14, 26, 0.9) 0%, rgba(26, 35, 50, 0.7) 100%);
+            border: 2px solid var(--ice-blue);
+            border-radius: 20px;
+            padding: 35px;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .guild-card::after {
+            content: '⚔️';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 40px;
+            opacity: 0.2;
+        }
+
+        .guild-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--royal-gold);
+            background: linear-gradient(135deg, rgba(26, 35, 50, 0.95) 0%, rgba(10, 14, 26, 0.9) 100%);
+            box-shadow: 0 20px 50px rgba(77, 166, 255, 0.4);
+        }
+
+        .guild-name {
+            font-family: 'Cinzel', serif;
+            font-size: 2em;
+            color: var(--royal-gold);
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+        }
+
+        .guild-description {
+            font-size: 1.2em;
+            color: var(--ice-blue);
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .guild-link {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--ice-blue), var(--royal-gold));
+            color: var(--royal-dark);
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .guild-link:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(77, 166, 255, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, transparent 0%, rgba(26, 35, 50, 0.9) 100%);
+            border-top: 2px solid var(--royal-gold);
+            margin-top: 100px;
+        }
+
+        .footer-text {
+            font-size: 1.3em;
+            color: var(--winter-white);
+            opacity: 0.8;
+            line-height: 2;
+        }
+
+        .footer-crown {
+            font-size: 3em;
+            margin: 20px 0;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .kingdom-logo {
+                font-size: 3em;
+            }
+
+            .section-title {
+                font-size: 2em;
+            }
+
+            .royalty-grid,
+            .guilds-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .audio-player {
+                top: 10px;
+                left: 10px;
+                padding: 10px 15px;
+            }
+        }
+
+        /* Scroll Animation */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Video Background -->
+    <video class="video-background" autoplay muted loop playsinline>
+        <source src="https://files.catbox.moe/yh6swj.mp4" type="video/mp4">
+    </video>
+
+    <!-- Snow Effect -->
+    <div class="snow" id="snow"></div>
+
+    <!-- Audio Player -->
+    <div class="audio-player">
+        <div class="audio-icon">🎵</div>
+        <div style="color: var(--royal-gold); font-weight: 600;">موسيقى المملكة</div>
+    </div>
+    <audio id="background-music" autoplay loop>
+        <source src="https://files.catbox.moe/vkhj3o.m4a" type="audio/mp4">
+    </audio>
+
+    <!-- Header -->
+    <header>
+        <h1 class="kingdom-logo">𝐿.𝐼.𝐾---𝑊𝐼𝑁𝑇𝐸𝑅</h1>
+        <p class="kingdom-subtitle">مملكة الشتاء الأسطورية</p>
+        <div class="developer-credit">
+            المؤسس والمطور: <span>𝑀𝐴𝑅𝐶𝐻𝐴𝐿</span>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- King Section -->
+        <section class="fade-in-section">
+            <h2 class="section-title">👑 الملك المؤسس 👑</h2>
+            <div class="king-card">
+                <img src="https://files.catbox.moe/b0mbb8.jpg" alt="King Denji" class="king-image">
+                <h3 class="king-title">جلالة الملك</h3>
+                <h4 class="king-name">دينجي - DENJI</h4>
+                <p class="king-description">
+                    مؤسس مملكة الشتاء العظيمة، قائد الأمة وحامي الأرض، صاحب الرؤية والقوة. 
+                    تحت قيادته الحكيمة، ازدهرت المملكة وأصبحت منارة للعدل والشجاعة. 
+                    ملك الشتاء الأبدي، سيد العاصفة، حامي النقابات الثلاث.
+                </p>
+            </div>
+        </section>
+
+        <!-- Vice King Section -->
+        <section class="fade-in-section">
+            <h2 class="section-title">🔱 نائب الملك 🔱</h2>
+            <div class="king-card" style="border-color: var(--blood-red); background: linear-gradient(135deg, rgba(139, 0, 0, 0.4) 0%, rgba(26, 35, 50, 0.7) 100%);">
+                <img src="https://files.catbox.moe/azt7yz.jpg" alt="Vice King Shanks" class="king-image" style="border-color: var(--blood-red);">
+                <h3 class="king-title" style="color: var(--blood-red); text-shadow: 0 0 20px rgba(139, 0, 0, 0.8);">🔱 نائب الملك 🔱</h3>
+                <h4 class="king-name" style="background: linear-gradient(90deg, var(--blood-red), var(--royal-gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">شانكس - SHANKS</h4>
+                <p class="king-description">
+                    نائب الملك الأسطوري، اليد اليمنى للملك دينجي وحامي العرش في غيابه.
+                    المحارب ذو الشعر الأحمر، سيد السيف والإرادة الحديدية.
+                    قوته تهز الأرض، وحكمته تضيء الطريق. يقف بجانب الملك في كل معركة،
+                    ويحمي المملكة بشجاعة لا مثيل لها. رمز الولاء والقوة المطلقة.
+                </p>
+            </div>
+        </section>
+
+        <!-- Advisor Section -->
+        <section class="fade-in-section">
+            <h2 class="section-title">⚜️ مستشارة الملك ⚜️</h2>
+            <div class="royalty-grid">
+                <div class="royal-card advisor-card">
+                    <img src="https://files.catbox.moe/dc7rh0.jpg" alt="Power" class="royal-image">
+                    <h3 class="royal-rank">💎 المستشارة الملكية 💎</h3>
+                    <h4 class="royal-name">𝑃𝑂𝑊𝐸𝑅</h4>
+                    <p class="royal-description">
+                        المستشارة الأولى للملك، صاحبة الحكمة والقوة. 
+                        تقف إلى جانب الملك في كل قرار، وتوجه المملكة بعقلها الثاقب وقلبها الشجاع. 
+                        هي العقل المدبر خلف استراتيجيات المملكة ونجاحاتها.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Princes Section -->
+        <section class="fade-in-section">
+            <h2 class="section-title">🗡️ الأمراء 🗡️</h2>
+            <div class="royalty-grid">
+                <div class="royal-card">
+                    <img src="https://files.catbox.moe/sz3udf.jpg" alt="Eren" class="royal-image">
+                    <h3 class="royal-rank">⚔️ الأمير ⚔️</h3>
+                    <h4 class="royal-name">𝐸𝑅𝐸𝑁</h4>
+                    <p class="royal-description">
+                        أمير المملكة، المحارب الشجاع الذي لا يعرف الخوف. 
+                        قائد الجيوش في المعارك، يحمل روح الحرية والانتقام. 
+                        صوت العدالة ورمز القوة في مملكة الشتاء.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dukes Section -->
+        <section class="fade-in-section">
+            <h2 class="section-title">🏰 الدوقات 🏰</h2>
+            <div class="royalty-grid">
+                <div class="royal-card">
+                    <img src="https://files.catbox.moe/ay6o6p.jpg" alt="Obito" class="royal-image">
+                    <h3 class="royal-rank">🌑 الدوق 🌑</h3>
+                    <h4 class="royal-name">Obito</h4>
+                    <p class="royal-description">
+                        دوق الظلام، سيد الأسرار والاستراتيجيات الخفية. 
+                        يحمي المملكة من التهديدات غير المرئية، وينفذ المهام الصعبة بدقة متناهية. 
+                        حارس الليل ومدبر الخطط المحكمة.
+                    </p>
+                </div>
+                <div class="royal-card">
+                    <img src="https://files.catbox.moe/t2ruhu.jpg" alt="Itachi" class="royal-image">
+                    <h3 class="royal-rank">🔥 الدوق 🔥</h3>
+                    <h4 class="royal-name">Itachi</h4>
+                    <p class="royal-description">
+                        دوق النار، العبقري التكتيكي والمحارب الأسطوري. 
+                        يضحي بكل شيء من أجل المملكة، ويحمل أسرارًا عميقة لحماية شعبه. 
+                        رمز التضحية والإخلاص الأبدي.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- High Ranks Section -->
+        <section class="fade-in-section">
+            <h2 class="section-title">⚡ الأدميرالات - الرتب العليا ⚡</h2>
+            <div class="royalty-grid">
+                <div class="royal-card">
+                    <img src="https://files.catbox.moe/nqfcbs.jpg" alt="Kanike" class="royal-image">
+                    <h3 class="royal-rank">⚓ الأدميرال ⚓</h3>
+                    <h4 class="royal-name">KANIKE</h4>
+                    <p class="royal-description">
+                        قائد الأساطيل والقوات البحرية، سيد البحار والعواصف. 
+                        يحمي حدود المملكة المائية بشجاعة لا مثيل لها، 
+                        ويقود الحملات البحرية بحنكة استراتيجية فائقة.
+                    </p>
+                </div>
+                <div class="royal-card">
+                    <img src="https://files.catbox.moe/smlsez.jpg" alt="Gabimaru" class="royal-image">
+                    <h3 class="royal-rank">🗡️ الأدميرال 🗡️</h3>
+                    <h4 class="royal-name">GABIMARU</h4>
+                    <p class="royal-description">
+                        الأدميرال الأسطوري، القاتل الصامت والمحارب الذي لا يُقهر. 
+                        ينفذ المهام المستحيلة ويحمي المملكة من أعدائها الأشرس. 
+                        رمز القوة المطلقة والولاء الأبدي.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guilds Section -->
+        <section class="fade-in-section">
+            <h2 class="section-title">🛡️ فروع المملكة - النقابات 🛡️</h2>
+            <div class="guilds-grid">
+                <div class="guild-card">
+                    <h3 class="guild-name">Black Lotus</h3>
+                    <p class="guild-description">🌑 نقابة الصيف - Summer Guild</p>
+                    <a href="https://chat.whatsapp.com/ETX4uKtiCBJ9XkJ8aYUcuG" target="_blank" class="guild-link">انضم الآن</a>
+                </div>
+                <div class="guild-card">
+                    <h3 class="guild-name">Winter Wolves</h3>
+                    <p class="guild-description">❄️ نقابة الخريف - Autumn Guild</p>
+                    <a href="https://chat.whatsapp.com/CEIZDpDd9g0BhUOaEl8dUA" target="_blank" class="guild-link">انضم الآن</a>
+                </div>
+                <div class="guild-card">
+                    <h3 class="guild-name">Frozen Crown</h3>
+                    <p class="guild-description">🌸 نقابة الربيع - Spring Guild</p>
+                    <a href="https://chat.whatsapp.com/DsfOddIfMWF38WrS7i38p1" target="_blank" class="guild-link">انضم الآن</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-crown">👑</div>
+        <p class="footer-text">
+            مملكة 𝐿.𝐼.𝐾---𝑊𝐼𝑁𝑇𝐸𝑅<br>
+            حيث تلتقي القوة بالشرف، والإخلاص بالمجد<br>
+            تحت راية الشتاء الأبدي، نحن واحد
+        </p>
+        <p style="margin-top: 30px; color: var(--royal-gold); font-size: 1.1em;">
+            © 2025 - صُنع بكل فخر بواسطة 𝑀𝐴𝑅𝐶𝐻𝐴𝐿
+        </p>
+    </footer>
+
+    <script>
+        // Auto-play music
+        window.addEventListener('load', () => {
+            const audio = document.getElementById('background-music');
+            audio.play().catch(e => {
+                console.log('Auto-play prevented. Click anywhere to start music.');
+                document.addEventListener('click', () => {
+                    audio.play();
+                }, { once: true });
+            });
+        });
+
+        // Create snowflakes
+        function createSnowflakes() {
+            const snow = document.getElementById('snow');
+            for (let i = 0; i < 50; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                snowflake.textContent = '❄';
+                snowflake.style.left = Math.random() * 100 + '%';
+                snowflake.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                snowflake.style.animationDelay = Math.random() * 5 + 's';
+                snowflake.style.fontSize = (Math.random() * 1.5 + 0.5) + 'em';
+                snow.appendChild(snowflake);
+            }
+        }
+
+        // Scroll animation
+        function checkScroll() {
+            const sections = document.querySelectorAll('.fade-in-section');
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (sectionTop < windowHeight * 0.85) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+
+        // Initialize
+        createSnowflakes();
+        checkScroll();
+        window.addEventListener('scroll', checkScroll);
+    </script>
+</body>
+</html>
